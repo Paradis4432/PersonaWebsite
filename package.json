@@ -1,0 +1,26 @@
+{
+  "name": "personawebsite",
+  "version": "1.0.0",
+  "description": "A website for myself, made to show my past work in a better way",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Paradis4432/PersonaWebsite.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Paradis4432/PersonaWebsite/issues"
+  },
+  "homepage": "https://github.com/Paradis4432/PersonaWebsite#readme",
+  "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "path": "^0.12.7"
+  }
+}
