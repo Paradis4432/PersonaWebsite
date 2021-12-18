@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" />
+</head>
+
+<body>
+    <template id="greetings">
+
+        █▀█ ▄▀█ █▀█ ▄▀█ █▀▄ █ █▀
+        █▀▀ █▀█ █▀▄ █▀█ █▄▀ █ ▄█
+
+        Bienvenido/a a mi pagina personal
+        Esta es una consola, donde podes interactuar libremente
+        Yo soy un programador de backend, y estoy aca para ayudarte
+
+        Para empezar escribe 'ayuda' y presiona enter
+    </template>
+    <style type="text/css">
+        .terminal,
+        span {
+            --size: 1.5;
+        }
+
+        .terminal {
+            --animation: terminal-bar;
+        }
+    </style>
+</body>
+
+</html>
+
+<script>
+    /*
+    commands:
+    limpiar - clear the terminal (press ctrl r)
+    gato - show a cat pic
+    info - show a little about me
+    portafolio - a list of my projects
+    contacto - contact me
+    git - show my git profile
+    habilidades - show my skills
+    ayuda - show a list of commands and how to use them
+    */
+    $('body').terminal({
+
+    }, {
+        greetings: greetings.innerHTML,
+        prompt: 'paradis.dev > ',
+    });
+
+</script>

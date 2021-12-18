@@ -30,6 +30,13 @@ app.listen(3000, () => { console.log('Server started at port 3000'); });
 
 app.get('/', (req, res) => {
     //render home.ejs and send the number 2 as a parameter called num
-    res.render('home');
-}
-);
+    res.render('lenSelect');
+});
+
+app.get("/consoleES", (req, res) => {
+    res.render('consoleES');
+});
+
+app.get("/consoleEN", (req, res) => {
+    res.render('consoleEN');
+});

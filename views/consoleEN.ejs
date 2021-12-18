@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/jquery.terminal/css/jquery.terminal.min.css" />
+</head>
+
+<body>
+    <template id="greetings">
+
+        █▀█ ▄▀█ █▀█ ▄▀█ █▀▄ █ █▀
+        █▀▀ █▀█ █▀▄ █▀█ █▄▀ █ ▄█
+
+        Welcome to my console website
+        I am a backend developer
+
+        To start type 'help' and press enter
+    </template>
+
+
+    <style type="text/css">
+        .terminal,
+        span {
+            --size: 1.5;
+        }
+
+        .terminal {
+            --animation: terminal-bar;
+        }
+    </style>
+</body>
+
+</html>
+
+<script>
+    /*
+    commands:
+    clear - clear the terminal (press ctrl r)
+    cat - show a cat pic
+    about - show a little about me
+    portfolio - a list of my projects
+    contact - contact me
+    git - show my git profile
+    skills - show my skills
+    help - show a list of commands and how to use them
+    */
+    $('body').terminal({
+        help: function () {
+            //this.echo("this is a list \nof commands", { typing: true, delay: 4 })
+            this.echo("this is a test")
+            this.update(-1, "test")
+        },
+        cat: function () {
+            this.echo($('<img src="https://placekitten.com/408/287">'));
+        },
+        test: function () {
+            this.echo("this is a test").exec("cat")
+
+        }
+    }, {
+        //greetings: "Welcome to my personal Website where you can type commands and get the result\nTo get started type 'about' \nTo get a list of commands type 'help'",
+        greetings: greetings.innerHTML,
+        prompt: 'paradis.dev > ',
+    });
+
+</script>
