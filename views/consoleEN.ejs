@@ -21,7 +21,8 @@
         Welcome to my console website
         I am a backend developer
 
-        To start type 'help' and press enter
+        To start type 'info' and press enter
+        To see the list of commands type 'help'
     </template>
 
 
@@ -40,9 +41,13 @@
 </html>
 
 <script>
+    function refresh(){
+        window.location.reload();
+        console.log("refreshing");
+    }
     /*
     commands:
-    clear - clear the terminal (press ctrl r)
+    cls/reset - clear the terminal (press ctrl r)
     cat - show a cat pic
     about - show a little about me
     portfolio - a list of my projects
@@ -52,7 +57,22 @@
     help - show a list of commands and how to use them
     */
     $('body').terminal({
-        help: function () {
+        cls: function() {
+            refresh()
+        },
+        reset: function() {
+            refresh()
+        },
+    }, {
+        greetings: greetings.innerHTML,
+        prompt: 'paradis.dev > ',
+    });
+
+</script>
+
+<!--
+    NOTES
+    help: function () {
             //this.echo("this is a list \nof commands", { typing: true, delay: 4 })
             this.echo("this is a test")
             this.update(-1, "test")
@@ -62,12 +82,8 @@
         },
         test: function () {
             this.echo("this is a test").exec("cat")
-
+        },
+        clean: function (){
+            refresh()
         }
-    }, {
-        //greetings: "Welcome to my personal Website where you can type commands and get the result\nTo get started type 'about' \nTo get a list of commands type 'help'",
-        greetings: greetings.innerHTML,
-        prompt: 'paradis.dev > ',
-    });
-
-</script>
+-->

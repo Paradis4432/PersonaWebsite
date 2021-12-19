@@ -22,7 +22,8 @@
         Esta es una consola, donde podes interactuar libremente
         Yo soy un programador de backend, y estoy aca para ayudarte
 
-        Para empezar escribe 'ayuda' y presiona enter
+        Para empezar escribe 'info' y presiona enter
+        Para ver la lista de comandos escribe 'ayuda'
     </template>
     <style type="text/css">
         .terminal,
@@ -39,22 +40,158 @@
 </html>
 
 <script>
+    function refresh() {
+        window.location.reload();
+        console.log("refreshing");
+    }
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
+    }
+
+    function barLoadGenerator(limit) {
+        var barLoad = "[";
+        for (var i = 0; i < limit; i++) {
+            barLoad += "=";
+        }
+        barLoad += ">";
+        //fill the rest with |
+        for (var i = 0; i < (25 - limit); i++) {
+            barLoad += " ";
+        }
+        barLoad += "]";
+        return barLoad;
+    }
     /*
     commands:
-    limpiar - clear the terminal (press ctrl r)
-    gato - show a cat pic
-    info - show a little about me
-    portafolio - a list of my projects
-    contacto - contact me
-    git - show my git profile
-    habilidades - show my skills
-    ayuda - show a list of commands and how to use them
+    cls/limpiar - clear the terminal (press ctrl r) d 
+    gato - show a cat pic d 
+    info - show a little about me d
+    portafolio - a list of my projects d
+    contacto - contact me d
+    git - show my git profile d
+    habilidades - show my skills d 
+    ayuda - show a list of commands and how to use them d
+    estudios - show my studies
     */
     $('body').terminal({
+        cls: function () {
+            refresh()
+        },
+        limpiar: function () {
+            refresh()
+        },
+        gato: function () {
+            randomNum0 = getRandomInt(300, 600);
+            randomNum1 = getRandomInt(300, 600);
+            const img = $('<img src="https://placekitten.com/' + randomNum0 + '/' + randomNum1 + '">');
+            img.on("load", this.resume)
+            this.pause()
+            this.echo(img);
+            this.echo("\n")
+        },
+        info: function () {
+            this.echo("\n")
+            this.echo($("<text>Mi nombre es Rodriguez Lucas Ezequiel tengo <strong>19 años</strong> y soy <strong>programador de Backend desde hace ya mas de 6 años</strong></text>"))
+            this.echo($("<text>Estoy por empezar la <strong>licenciatura en desarrollos de videojuegos</strong></text>"))
+            this.echo($("<text>Con mas de 1 año en <strong>estudios certificados</strong></text>"))
+            this.echo($("<text>Tengo una <strong>gran pasion por la tecnologia</strong> y siempre estoy dispuesto a trabajar en un proyecto interesante</text>"))
+            this.echo($("<text>Actualmente estoy en <strong>busca de trabajo</strong> en el area de <strong>desarrollo de software</strong></text>"))
+            this.echo($("<text>Para ver mi <strong>lista de proyectos</strong> escribe <strong>portafolio</strong> y presiona enter</text>"))
+            this.echo($("<text>Para <strong>contactarme</strong> escribe <strong>contacto</strong> y presiona enter</text>"))
+            this.echo($("<text>Para ver mis <strong>habilidades</strong> escribe <strong>habilidades</strong> y presiona enter</text>"))
+            this.echo($("this is a test",{typing: true, delay: 20}), raw=true)
+            this.echo($("this is a test"),{typing: true, delay: 20}, raw=true)
+            this.echo("this is a test",{typing: true, delay: 20})
+            this.echo("\n")
+        },
+        portafolio: function () {
+            //this.echo("\n")
+            //this.echo($("<text>Estos son algunos de mis proyectos</text>"))
+            //this.echo($("<text>Para ver mas de un proyecto escribe el nombre del proyecto y presiona enter</text>"))
+            //this.echo("\n")
+            //this.echo($("<text>Proyecto 1: <strong>Proyecto 1</strong></text>"))
+            //this.echo($("<text>Proyecto 2: <strong>Proyecto 2</strong></text>"))
+            //this.echo($("<text>Proyecto 3: <strong>Proyecto 3</strong></text>"))
+            //this.echo($("<text>Proyecto 4: <strong>Proyecto 4</strong></text>"))
+            //this.echo($("<text>Proyecto 5: <strong>Proyecto 5</strong></text>"))
+            //this.echo($("<text>Proyecto 6: <strong>Proyecto 6</strong></text>"))
+            //this.echo($("<text>Proyecto 7: <strong>Proyecto 7</strong></text>"))
+            //this.echo($("<text>Proyecto 8: <strong>Proyecto 8</strong></text>"))
+            //this.echo($("<text>Proyecto 9: <strong>Proyecto 9</strong></text>"))
+            //this.echo($("<text>Proyecto 10: <strong>Proyecto 10</strong></text>"))
+            //this.echo("\n")
+            this.echo("en progreso")
+        },
+        contacto: function () {
+            this.echo("\n")
+            this.echo($("<text>Puedes contactarme en:</text>"))
+            this.echo($("<text>Correo: <strong>Lucasezequiel120202@gmail.com</strong></text>"))
+            this.echo($("<text>Telefono: <strong>+54 9 11 5832-9344</strong></text>"))
+            //this.echo($("<text>Twitter: <strong>@LucasEzequiel</strong></text>"))
+            this.echo($("<text>GitHub: <strong>https://github.com/Paradis4432</strong></text>"))
+            this.echo($("<text>Discord: <strong>Paradis#4432</strong></text>"))
+            this.echo("\n")
+        },
+        git: function () {
+            this.echo("\n")
+            this.echo($("<text>Puedes ver mi perfil de <strong>GitHub</strong> en <strong>https://github.com/Paradis4432</strong></text>"))
+            this.echo("\n")
+        },
+        habilidades: function () {
+            this.echo("\n")
+            this.echo($("<text>Aca se puede ver mi nivel de confort en cada area</text>"))
+            this.echo("\n")
+            per100 = 100 / 4
+            per80 = 80 / 4
+            per60 = 60 / 4
+            per40 = 40 / 4
+            per20 = 20 / 4
+            this.echo($("<text>Python</text>"))
+            this.echo(barLoadGenerator(per100))
+            this.echo($("<text>Java</text>"))
+            this.echo(barLoadGenerator(per80))
+            this.echo($("<text>SQL</text>"))
+            this.echo(barLoadGenerator(per80))
+            this.echo($("<text>Data Science</text>"))
+            this.echo(barLoadGenerator(per80))
+            this.echo($("<text>Automatizacion de tareas</text>"))
+            this.echo(barLoadGenerator(per80))
+            this.echo($("<text>Java Script</text>"))
+            this.echo(barLoadGenerator(per60))
+            this.echo($("<text>C / C++</text>"))
+            this.echo(barLoadGenerator(per40))
+            this.echo($("<text>Html/Css</text>"))
+            this.echo(barLoadGenerator(per20))
+            this.echo("\n")
 
+            //para ver que proyectos tengo en cada lenguaje escribe "porfolio " y el nombe del lenguaje
+        },
+        ayuda: function () {
+            this.echo("\n")
+            this.echo($("<text>Para limpiar la consola escribe <strong>cls</strong> o <strong>limpiar</strong> y presiona enter</text>"))
+            this.echo($("<text>Para ver la lista de comandos escribe <strong>ayuda</strong> y presiona enter</text>"))
+            this.echo($("<text>Para ver la lista de proyectos escribe <strong>portafolio</strong> y presiona enter</text>"))
+            this.echo($("<text>Para ver mi informacion escribe <strong>info</strong> y presiona enter</text>"))
+            this.echo($("<text>Para ver mis habilidades escribe <strong>habilidades</strong> y presiona enter</text>"))
+            this.echo($("<text>Para ver mi perfil de <strong>GitHub</strong> escribe <strong>git</strong> y presiona enter</text>"))
+            this.echo($("<text>Para ver mis contactos escribe <strong>contacto</strong> y presiona enter</text>"))
+            this.echo($("<text>Para ver una foto de un lindo gatito escribe <strong>gato</strong> y presiona enter</text>"))
+            this.echo("\n")
+        },
+        estudios: function() {
+            this.echo("en progreso")
+        }
     }, {
         greetings: greetings.innerHTML,
         prompt: 'paradis.dev > ',
+        completion: true,
+        checkArity: false,
     });
 
 </script>
+
+<!--
+-->
