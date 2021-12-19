@@ -40,3 +40,4 @@ app.get("/consoleES", (req, res) => {
 app.get("/consoleEN", (req, res) => {
     res.render('consoleEN');
 });
+//v2
