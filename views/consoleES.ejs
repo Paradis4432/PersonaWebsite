@@ -64,6 +64,10 @@
         barLoad += "]";
         return barLoad;
     }
+
+    function verMas(){
+        console.log("test")
+    }
     /*
     commands:
     cls/limpiar - clear the terminal (press ctrl r) d 
@@ -101,10 +105,9 @@
             this.echo($("<text>Actualmente estoy en <strong>busca de trabajo</strong> en el area de <strong>desarrollo de software</strong></text>"))
             this.echo($("<text>Para ver mi <strong>lista de proyectos</strong> escribe <strong>portafolio</strong> y presiona enter</text>"))
             this.echo($("<text>Para <strong>contactarme</strong> escribe <strong>contacto</strong> y presiona enter</text>"))
-            this.echo($("<text>Para ver mis <strong>habilidades</strong> escribe <strong>habilidades</strong> y presiona enter</text>"))
-            this.echo($("this is a test",{typing: true, delay: 20}), raw=true)
-            this.echo($("this is a test"),{typing: true, delay: 20}, raw=true)
-            this.echo("this is a test",{typing: true, delay: 20})
+            this.echo($("<text>Para ver mis <strong>habilidades</strong> escribe <strong>habilidades</strong> y presiona enter</text><button id=\"verMasd()\">Ver mas</button>"))
+            //add word excel, soft skills
+            //add git message
             this.echo("\n")
         },
         portafolio: function () {
