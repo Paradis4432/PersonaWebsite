@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+    #butt {
+        background-color: white;
+        color: black;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    #info0 {
+        display: none;
+    }
+
+    #info1 {
+        display: none;
+    }
+</style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="node_modules/mdbootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="node_modules/mdbootstrap/css/mdb.min.css">
+    <link rel="stylesheet" href="node_modules/mdbootstrap/css/style.css">
+</head>
+
+<body>
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/jquery.min.js"></script>
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/popper.min.js"></script>
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="node_modules/mdbootstrap/js/mdb.min.js"></script>
+
+    <button onclick="toggle('info0')" id="butt">data</button>
+    <ol id="info0">
+        <button onclick="toggle('info1')" id="butt">subData</button>
+        <ol id="info1">
+            <dt>this is subData0</dt>
+            <dt>this is subData1</dt>
+        </ol>
+        <dt>this is data0</dt>
+        <dt>this is data1</dt>
+        <dd>this is data1 as dd</dd>
+    </ol>
+</body>
+
+</html>
+
+<script>
+
+    function toggle(id) {
+        var e = document.getElementById(id);
+        console.log(e.style.display)
+        if (e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
+    }
+    function showSubData() {
+        var info1 = document.getElementById("info1");
+        if (info1.style.display == "none") {
+            info1.style.display = "block";
+        } else {
+            info1.style.display = "none";
+        }
+    }
+    function show() {
+        var info = document.getElementById("info0");
+        if (info.style.display == "none") {
+            info.style.display = "block";
+        } else {
+            info.style.display = "none";
+        }
+
+    }
+</script>
