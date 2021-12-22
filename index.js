@@ -26,6 +26,9 @@ app.use(session({
 
 //app.use(cors(corsOptions));
 
+//console.log hello world
+
+
 app.listen(3000, () => { console.log('Server started at port 3000'); });
 
 app.get('/', (req, res) => {
