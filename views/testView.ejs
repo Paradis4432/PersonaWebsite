@@ -13,12 +13,16 @@
 <style>
     .terminal {
         --animation: terminal-bar;
+        border: white solid 1px;
     }
+
 
     .terminal {
         min-height: 600px;
         /* make the max-height 80% of the viewport */
         max-height: 600px;
+        padding-left: 20px;
+
     }
 
     .terminal,
@@ -27,7 +31,19 @@
     }
 
     body {
-        background-color: rgb(114, 102, 102);
+        /* background-color: rgb(114, 102, 102); */
+        background-color: black;
+    }
+
+    #butt {
+        background-color: black;
+        color: white;
+        border: none;
+        border-bottom: white solid 1px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
     }
 
     p {
@@ -40,7 +56,8 @@
         margin: 0;
     }
 
-    h1 {
+    h1,
+    h5 {
         color: white;
         padding: 25px;
     }
@@ -54,45 +71,63 @@
     #past-work-java {
         display: none;
     }
+
+    .scrollable {
+        height: 600px;
+        overflow-y: auto;
+    }
+
+    .terminal,
+    .cmd {
+        --color: white;
+    }
 </style>
 
 <body>
 
-    <head>
+    <header>
         <headContainer>
             <h1>
                 Paradis - Backend Developer
             </h1>
 
-            <p>Hi my name is Rodriguez Lucas and this is my interactive website!</p>
+            <!-- add a h5 with a line under the text -->
+
+            <h5>Welcome!, My name is Lucas, I'm an independent creative <br>
+                <u>Data Scientist</u> and <u>Full Stack Web Developer</u> from Argentina.
+                <br>I have over 7 years of experience programming in many different <u>languages</u> and
+                <u>frameworks</u>.
+                <br>I can speak both spainsh and english fluently
+            </h5>
         </headContainer>
-    </head>
-    <p>a few tips before we begin, like what is a console and why it's so important</p>
+    </header>
+    <hr style="color: white;">
+
     <div class="container">
         <div class="row">
             <div class="col-3">
+                <div class="scrollable">
 
-                <button onclick="toggle('past')" id="butt">Past</button>
-                <ol id="past">
-                    <button onclick="toggle('past-work')" id="butt">Work</button>
-                    <ol id="past-work">
-                        <button onclick="toggle('past-work-java')" id="butt">Java</button>
-                        <ol id="past-work-java">
-                            <button onclick="show('past-work-java-0')" id="butt">First Java Proyect</button>
-
+                    <button onclick="toggle('past')" id="butt">Past</button>
+                    <ol id="past">
+                        <button onclick="toggle('past-work')" id="butt">Work</button><br>
+                        <ol id="past-work">
+                            <button onclick="toggle('past-work-java')" id="butt">Java</button>
+                            <ol id="past-work-java">
+                                <button onclick="show('past-work-java-0')" id="butt">Fist java proyect</button><br>
+                                <button onclick="show('past-work-java-1')" id="butt">Se</button>
+                            </ol>
                         </ol>
+                        <button onclick="toggle('Works')" id="butt">Jobs</button>
                     </ol>
-                    <button onclick="toggle('Works')" id="butt">Jobs</button>
-
-                    <dd>this is data0</dd>
-                    <dd>this is data1</dd>
-                </ol>
+                </div>
 
             </div>
             <div class="col-8">
-                    <test></test>
+                <test></test>
             </div>
         </div>
+    </div>
     </div>
 </body>
 
@@ -105,11 +140,11 @@
         return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
     }
     function show(id) {
-        test.exec("cls")
+        test.exec("cls " + id);
     }
     function toggle(id) {
         var e = document.getElementById(id);
-        console.log(e.style.display)
+        //console.log(e.style.display)
         if (e.style.display == 'block')
             e.style.display = 'none';
         else
@@ -128,22 +163,31 @@
                 this.echo("something else")
             }
         },
-        cls: function () {
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-            this.echo("hello world")
-        },
+        cls: function (id) {
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            //this.echo("hello world")
+            this.echo(id)
+        }
+    }, {
+        greetings: "TEMPLATE HERE!",
+        prompt: 'paradis.dev > ',
+    });
+</script>
+
+<!--
+    NOTES:
         test: function () {
             this.echo($("<button onclick=\"runTest()\">run test</button>"))
         },
@@ -163,12 +207,4 @@
             this.echo(img);
             this.echo("\n")
         },
-    }, {
-        greetings: "Welcome!",
-        prompt: 'paradis.dev > ',
-    });
-
-    function runTest() {
-        test.exec("cls")
-    }
-</script>
+-->
