@@ -11,6 +11,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.resolve(__dirname, "./public/css")));
+app.use(express.static(path.resolve(__dirname, "./public/js")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride('_method'));
@@ -26,11 +27,14 @@ app.use(session({
 
 //app.use(cors(corsOptions));
 
+//console.log hello world
+
+
 app.listen(3000, () => { console.log('Server started at port 3000'); });
 
 app.get('/', (req, res) => {
     //render home.ejs and send the number 2 as a parameter called num
-    res.render('lenSelect');
+    res.render('testviewV2');
 });
 
 app.get("/consoleES", (req, res) => {
