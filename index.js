@@ -11,6 +11,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(express.static(path.resolve(__dirname, "./public/css")));
+app.use(express.static(path.resolve(__dirname, "./public/images")));
 app.use(express.static(path.resolve(__dirname, "./public/js")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

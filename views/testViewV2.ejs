@@ -25,14 +25,32 @@
 
 <body style="background-color: var(--bgColor);">
     <%- include("partials/header"); %>
+        <button id="toggle">&lthome&gt</button>
         <main>
+            <buttonTest>Intro</buttonTest>
             <%- include("partials/mainIntro"); %>
+                <buttonTest>WhoAmI</buttonTest>
                 <%- include("partials/whoAmI"); %>
+                    <buttonTest>Terminal</buttonTest>
                     <%- include("partials/terminal"); %>
         </main>
+        <buttonTest>Footer</buttonTest>
         <%- include("partials/footer"); %>
+            <button id="toggle">&lt&#47home&gt</button>
 
 </body>
+<style>
+    buttonTest {
+        color: white;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $("#toggle").click(function () {
+            $("main").toggle();
+        });
+    });
+</script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
